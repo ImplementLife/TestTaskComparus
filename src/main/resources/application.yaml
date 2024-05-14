@@ -1,0 +1,45 @@
+
+spring:
+  profiles:
+    active: '@appPropProfile@'
+
+logging:
+  level:
+    root: INFO
+
+impl_life:
+  baseUrl: http://ilfa.dp.ua
+  inMemoryRepo: false
+  lifeTimeBillingInMinutes: 10
+  paymentUrl: http://ilfa.dp.ua/profile/payBilling
+  swagger:
+    version: 0.0.2
+
+server:
+  port: 8080
+
+
+data-sources:
+  - name: data-base-1
+    strategy: postgres #this property is optional, only if you will implement multiple database type support (Postgres, ORACLE, MySQL...)
+    url: jdbc:postgresql://localhost:5433/db1?user=user1&password=password1
+    user: testuser
+    password: testpass
+    table: users
+    mapping:
+      id: user_id
+      username: login
+      name: first_name
+      surname: last_name
+
+  - name: data-base-2
+    strategy: postgres
+    url: jdbc:postgresql://localhost:5434/db2?user=user2&password=password2
+    user: testuser
+    password: testpass
+    table: user_table
+    mapping:
+      id: ldap_id
+      username: ldap_login
+      name: name
+      surname: surname
