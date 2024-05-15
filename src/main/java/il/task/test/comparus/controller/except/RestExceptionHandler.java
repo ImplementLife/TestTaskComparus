@@ -20,6 +20,7 @@ public class RestExceptionHandler {
         Map<String, Object> body = new HashMap<>();
         body.put("timestamp", new Date());
         body.put("path", requestURL);
+        body.put("message", ex.getMessage());
         return ResponseEntity.internalServerError().body(body);
     }
 }
