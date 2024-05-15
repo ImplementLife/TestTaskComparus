@@ -16,10 +16,10 @@ springdoc.swagger-ui.path: /
 data-sources:
   - name: data-base-1
     strategy: postgres
-    url: jdbc:postgresql://localhost:5433/db1
-    user: user1
-    password: password1
-    table: users
+    url: jdbc:postgresql://localhost:5433/pg_db
+    user: user
+    password: pass
+    table: p_users
     mapping:
       id: user_id
       username: login
@@ -27,25 +27,13 @@ data-sources:
       surname: last_name
 
   - name: data-base-2
-    strategy: postgres
-    url: jdbc:postgresql://localhost:5434/db2
-    user: user2
-    password: password2
-    table: user_table
-    mapping:
-      id: ldap_id
-      username: ldap_login
-      name: name
-      surname: surname
-
-  - name: data-base-3
     strategy: mysql
-    url: jdbc:mysql://localhost:3306/exampledb
-    user: exampleuser
-    password: examplepassword
-    table: users
+    url: jdbc:mysql://localhost:3306/mysql_db
+    user: mysql_user
+    password: mysql_pass
+    table: m_users
     mapping:
       id: id
-      username: username
+      username: uname
       name: name
-      surname: surname
+      surname: sname
