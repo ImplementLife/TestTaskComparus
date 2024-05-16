@@ -34,10 +34,10 @@ public class DataCollector {
         for (Map<String, Object> dat : data) {
             User user = new User();
             for (Map.Entry<String, String> map : mapping.entrySet()) {
-                String key = map.getKey();
-                String value = map.getValue();
-                Object entityValue = dat.get(value);
-                setValueByFieldName(user, key, entityValue);
+                String userFieldName = map.getKey();
+                String mappedFieldName = map.getValue();
+                Object value = dat.get(mappedFieldName);
+                setValueByFieldName(user, userFieldName, value);
             }
             users.add(user);
         }
